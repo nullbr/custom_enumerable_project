@@ -8,4 +8,18 @@ end
 # to this method
 class Array
   # Define my_each here
+
+  def my_each
+    length.times { |i| yield self[i] }
+    self
+  end
 end
+
+array = [1, 1, 2, 3, 5, 8, 13, 21, 34]
+my_each_results = []
+
+array.my_each do |element|
+  my_each_results << element * 2
+end
+
+p my_each_results
